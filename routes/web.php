@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TesteController;
+use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/verificaMaioridade', [TesteController::class, 'index'])->name('VerificaMaioridade');
+Route::get('/formulario', [TesteController::class, 'form'])->name('VerificaMaioridadeFormulario');
+
+/*
+Route::get('/teste', function() {
+    return view('teste', [
+        'variavelUm' => 'teste',
+        'variavelDois' => 'alura',
+        'variavelTres' => 'comex'
+    ]);
+});
+*/

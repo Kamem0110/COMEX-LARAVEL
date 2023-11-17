@@ -14,11 +14,16 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            //$table->integer('idade');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            //Aqui é um campo estrangeiro. Ele mesmo vai criar o campo user_id
+            //No constrained, pode deixar em branco. Pois ao criar o user_id, ele já reconhece que é de users.
+            //$table->integerId('user_id')->constrained();
         });
     }
 
